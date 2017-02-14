@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Ui</title>
+</head>
+<body>
+	File Name : <input type="text" name="txtname" id="name"> <br><br>
+	FilePath : <input type="file" name="filepath" id="fileId"> <br><br>
+	<button id= "upload-btn" >Click me</button>	
+	<!-- <a href="/images/myw3schoolsimage.jpg" download>
+  	<img border="0" src="/images/myw3schoolsimage.jpg" alt="W3Schools" width="104" height="142">
+	</a> -->
+	<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>	
+	<script type="text/javascript">
+     $('#upload-btn').on('click', function (){
+	  var files = $("#fileId").get(0).files;
+
+	  var filename;
+	  console.log("files : "+ JSON.stringify(files));
+	  if (files.length > 0){
+		    // create a FormData object which will be sent as the data payload in the
+		    // AJAX request
+		    var formData = new FormData();
+		    // loop through all the selected files and add them to the formData object
+		    for (var i = 0; i < files.length; i++) {
+		      var file = files[i];
+		      filename = $("#name").val().length > 0 ? $("#name").val()+"."+file.name.split(".")[1] : file.name;
+		      console.log("filename : "+filename);
+		      formData.append('uploads[]', file, filename);
+
+		      //console.log('formData : '+ formData);
+		    }
+		    console.log('formData : '+JSON.stringify(formData));
+		    $.ajax({
+			      url: '/upload',
+			      type: 'POST',
+			      data: formData,
+			      processData: false,
+			      contentType: false,
+			      success: function(data){
+		          console.log('upload successful!\n' + data);
+		    	}
+			});
+		}else if ($("#name").val().length > 0) {
+			filename = $("#name").val();
+			console.log("FileName : "+filename);
+			window.open('/download?filename='+filename);	
+		}else {
+			console.log('file is not selected by any of you');
+		}
+	});
+    </script>
+</body>
+</html>

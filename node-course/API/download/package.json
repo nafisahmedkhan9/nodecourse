@@ -1,0 +1,16 @@
+{
+  "name": "download",
+  "version": "1.0.0",
+  "description": "this is for downloading process",
+  "main": "indext.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node indext.js"
+  },
+  "author": "nafis",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "node-persist": "^2.0.2"
+  }
+}

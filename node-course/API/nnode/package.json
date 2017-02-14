@@ -1,0 +1,18 @@
+{
+  "name": "nnode",
+  "version": "1.0.0",
+  "description": "first node program",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node indext.js"
+
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config.json": "0.0.4",
+    "express": "^4.14.0",
+    "mysql": "^2.11.1"
+  }
+}

@@ -1,0 +1,9 @@
+var minimumdist;
+var a = "10"
+for(var i=0;i<list.len;i++){
+	var b = list[i];
+	var dist = getDistance(a,b);
+	if(minimumdist && minimumdist>dist)
+		minimumdist = dist;
+
+}
